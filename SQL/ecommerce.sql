@@ -51,9 +51,9 @@ alter table ecommerce.users
 alter table ecommerce.carts
     add foreign key (user_id) references users (id);
 
-alter table ecommerce5E.cart_products
+alter table ecommerce.cart_products
     add foreign key (cart_id) references carts (id),
     add foreign key (product_id) references products (id);
 
-alter table ecommerce5E.sessions
+alter table ecommerce.sessions
     add foreign key (user_id) references users (id);
