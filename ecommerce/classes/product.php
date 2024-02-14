@@ -71,19 +71,4 @@ class Product
         $stmt->bindParam(":prezzo", $prezzo);
         return $stmt->execute();
     }
-
-    public static function Delete($id)
-    {
-        $conn = Product::connector();
-        //$id = $this->getId();
-        $stmt = $conn->prepare("delete from ecommerce.products where id = :id");
-        $stmt->bindParam(":id", $id);
-        if ($stmt->execute()) {
-            $stmt = $conn->prepare("delete from ecommerce.cart_products where product_id = :id");
-            $stmt->bindParam(":id", $id);
-            return $stmt->execute();
-        } else {
-            throw new PDOException("Errore");
-        }
-    }
 }
